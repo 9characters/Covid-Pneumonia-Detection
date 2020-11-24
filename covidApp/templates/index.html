@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %}COVID-19 AND PNEUMONIA DETECTION{% endblock %}
+      {% block body_block %}
+    <br>
+    <br>
+    <div class="container">
+        <form method="post" id="fileform" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="file-upload">
+                <div class="file-select">
+                    <div class="file-select-button" id="fileName">
+                        <h6>Upload Image</h6>
+                    </div>
+                    <div class="file-select-name" id="noFile">
+                        {% if file_url %}
+                        {{ file_url }}
+                        {% else %}
+                        No Image Uploaded...
+                        {% endif %}
+                    </div>
+                    <input id="chooseFile" type="file" name="myfile">
+                </div>
+                <br><br>
+            </div>
+            <div class="file-upload-button">
+    
+    
+                <button id="sub" class="btn btn-primary btn-lg" type="submit">Predict</button>
+    
+            </div>
+        </form>
+    </div>
+    <br>
+    
+    <div class="container">
+        <div class="file-upload-button">
+    
+            {% if file_url %}
+            <h2 id='filename'><strong>{{ result }}</strong></h2>
+            <br>
+            <img src={{ file_url }}>
+            {% else %}
+            <br>
+            <h2 style="color:white;">No Preview</h2>
+            {% endif %}
+    
+        </div>
+    
+    </div>
+        {% endblock %}

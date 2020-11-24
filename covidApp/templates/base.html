@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styleeeee.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="container">
+    
+        <div class="header-bar-warp d-flex">
+    
+            <h3 style='color: white; font-family: Pacifico, cursive; margin-bottom: 10px; font-size:26px;'><a style="color: white;"
+                    href="{% url 'covidApp:index' %}">COVID-19 AND PNEUMONIA DETECTION</a></h3>
+    
+            <nav class="top-nav-area w-75">
+    
+                <!-- Menu -->
+                <ul class="main-menu primary-menu">
+                    <li><a href="{% url 'covidApp:index' %}"><strong>Home</strong></a></li>
+                    <li><a href="{% url 'covidApp:aboutus' %}"><strong>About Us</strong></a></li>
+    
+                </ul>
+                <img style="position: absolute; padding: 8px 10px 0 0; width: 85px; height:85px; display: block; left: 77%; top: 1%; z-index: 1;"
+                    src="{% static 'images/logo.jpg' %}">
+            </nav>
+    
+    
+        </div>
+    </div>
+
+
+    
+
+        {% block body_block %}
+
+        {% endblock %}
